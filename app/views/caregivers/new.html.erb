@@ -5,7 +5,7 @@
   <%=link_to "Cuidador", new_caregiver_path, class: "btn btn-secondary mr-2 mt-2" %>
 </div>
 
-<%= simple_form_for [@client] do |f| %>
+<%= simple_form_for [@caregiver] do |f| %>
   <div class="form-inputs mt-2">
     <%= f.input :first_name,
                 required: true,
