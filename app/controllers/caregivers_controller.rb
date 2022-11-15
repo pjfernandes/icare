@@ -11,7 +11,7 @@ class CaregiversController < ApplicationController
 
   def create
     @caregiver = Caregiver.new(caregiver_params)
-    #@caregiver.user = current_user
+    @caregiver.address = @caregiver.street + "," + @caregiver.city
     if @caregiver.save
       redirect_to root_path, notice: 'Seja bem-vindo(a)!'
     else
@@ -32,6 +32,10 @@ class CaregiversController < ApplicationController
     :last_name,
     :type,
     :address,
+    :street,
+    :number,
+    :district,
+    :complement,
     :city,
     :latitude,
     :longitude,

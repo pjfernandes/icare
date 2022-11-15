@@ -22,11 +22,29 @@
                 autofocus: true,
                 label: "E-mail",
                 input_html: { autocomplete: "email" }%>
-        <%= f.input :address,
-                required: true,
-                autofocus: true,
-                label: "Endereço",
-                input_html: { autocomplete: "endereço" }%>
+    <%= f.input :street,
+            required: true,
+            autofocus: true,
+            label: "Rua",
+            input_html: { autocomplete: "Rua" }%>
+
+    <%= f.input :number,
+      required: true,
+      autofocus: true,
+      label: "Número",
+      input_html: { autocomplete: "Número" }%>
+
+    <%= f.input :district,
+      required: true,
+      autofocus: true,
+      label: "Bairro",
+      input_html: { autocomplete: "Bairro" }%>
+
+    <%= f.input :complement,
+      required: false,
+      autofocus: true,
+      label: "Complemento",
+      input_html: { autocomplete: "Complemento" }%>
       <%= f.input :city,
                 required: true,
                 autofocus: true,

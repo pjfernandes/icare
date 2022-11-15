@@ -21,16 +21,49 @@
               autofocus: true,
               label: "E-mail",
               input_html: { autocomplete: "email" }%>
-      <%= f.input :address,
-              required: true,
-              autofocus: true,
-              label: "Endereço",
-              input_html: { autocomplete: "endereço" }%>
-    <%= f.input :city,
-              required: true,
-              autofocus: true,
-              label: "Cidade",
-              input_html: { autocomplete: "cidade" }%>
+   <%= f.input :street,
+            required: true,
+            autofocus: true,
+            label: "Rua",
+            input_html: { autocomplete: "Rua" }%>
+
+    <%= f.input :number,
+      required: true,
+      autofocus: true,
+      label: "Número",
+      input_html: { autocomplete: "Número" }%>
+
+    <%= f.input :district,
+      required: true,
+      autofocus: true,
+      label: "Bairro",
+      input_html: { autocomplete: "Bairro" }%>
+
+    <%= f.input :complement,
+      required: false,
+      autofocus: true,
+      label: "Complemento",
+      input_html: { autocomplete: "Complemento" }%>
+      <%= f.input :city,
+                required: true,
+                autofocus: true,
+                label: "Cidade",
+                input_html: { autocomplete: "cidade" }%>
+
+    <% if current_user.type == "Caregiver"%>
+            <%= f.input :formation,
+                required: true,
+                autofocus: true,
+                label: "Formação",
+                input_html: { autocomplete: "formação" }%>
+          <%= f.input :care_type,  as: :select, collection: [['Cuidador(a)', 'cuidador'], ['Cozinheiro(a)', 'cozinheiro'],['Enfermeiro(a)', 'enfermeiro'], ['Fisioterapeuta', 'fisioterapeuta']], :prompt => 'Selecione', label:'Tipo de cuidado', required: true %>
+          <%= f.input :value,
+                required: true,
+                autofocus: true,
+                label: "Valor (R$) por hora",
+                input_html: { autocomplete: "valor" }%>
+
+    <% end %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -39,12 +72,15 @@
     <%= f.input :password,
                 hint: "Deixe em branco caso não queira mudar",
                 required: false,
+                label: "Senha",
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
+                label: "Confirme a nova senha",
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "Confirme sua senha",
+                hint: "Sua senha atual",
+                label: "Senha atual",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
