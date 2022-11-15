@@ -1,6 +1,10 @@
 class CaregiversController < ApplicationController
     skip_before_action :authenticate_user!, only: %i[new create]
 
+  def index
+    @caregivers = Caregiver.all
+  end
+
   def new
     @caregiver = Caregiver.new
   end
