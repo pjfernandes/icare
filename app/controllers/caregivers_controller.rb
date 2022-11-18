@@ -3,6 +3,13 @@ class CaregiversController < ApplicationController
 
   def index
     @caregivers = Caregiver.all
+    @markers = @caregivers.geocoded.map do |caregiver|
+    {
+      lat: caregiver.latitude,
+      lng: caregiver.longitude
+    }
+  end
+
   end
 
   def new
