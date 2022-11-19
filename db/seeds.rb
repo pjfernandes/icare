@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "faker"
-address_list = ["Avenida Rio Branco, 24", "Rua Lopes Trovão", "Rua Noronha Torrezão", "Praia de Icaraí", "Rua Nilo Peçanha, Niteroi", "Avenida Marechal Floriano", "Avenida Amaral Peixoto"]
+address_list = ["Avenida Rio Branco, 24", "Rua Lopes Trovão", "Rua Noronha Torrezão", "Praia de Icaraí", "Rua Nilo Peçanha, Niteroi", "Avenida Marechal Deodoro", "Avenida Amaral Peixoto"]
 formation_list = ["Enfermeiro", "Nutricionista", "Psicólogo", "Técnico de Enfermagem"]
 care_type_list = ["Cuidador", "Nutricionista", "Fisioterapia", "Psicologia"]
 
-10.times do
+6.times do
   caregiver = Caregiver.new
   caregiver.email = Faker::Internet.email
   caregiver.first_name = Faker::Name.unique.name

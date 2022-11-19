@@ -1,0 +1,29 @@
+<h2 class="title mb-2 text-center"><i class="fa-solid fa-user text-primary"></i> <%= @caregiver.first_name.capitalize + " " + @caregiver.last_name.capitalize%></span></h2>
+
+<div id="map"
+     style="width: 100%; height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-controller="map"
+     data-map-api-key-value="pk.eyJ1IjoicGpmZXJuYW5kZXMiLCJhIjoiY2t1c291Z3lzNWg2bzJvbW5kNWNhbnZhaCJ9.eYxvagOUGuS5qDo-zOfRCA">
+</div>
+
+<div class="point-description border rounded bg-white mb-2 text-break text-left mt-3">
+  <div class="p-3">
+    <h5 class="page-title mb-3"><i class="fa-solid fa-heart text-primary"></i> <%= @caregiver.care_type %></h5>
+    <p><strong>Formação:</strong> <%= @caregiver.formation %></p>
+    <p><strong>Endereço:</strong> <%= @caregiver.address %></p>
+    <p><strong>Valor por hora (R$):</strong> <%= @caregiver.value %></p>
+  </div>
+</div>
+
+<div class="buttons">
+  <%= link_to "Contato", "#", class: "contact btn btn-danger text-white"%>
+  <%= link_to "Voltar", caregivers_path, class: "btn btn-secondary"%>
+</div>
+
+<script>
+  const contact = document.querySelector(".contact")
+  contact.addEventListener("click", ((event) => {
+    alert("O cuidador foi contatado")
+  }))
+</script>

@@ -6,7 +6,8 @@ class CaregiversController < ApplicationController
     @markers = @caregivers.geocoded.map do |caregiver|
     {
       lat: caregiver.latitude,
-      lng: caregiver.longitude
+      lng: caregiver.longitude,
+      info_window: render_to_string(partial: "info_window", locals: {caregiver: caregiver})
     }
   end
 
@@ -14,6 +15,18 @@ class CaregiversController < ApplicationController
 
   def new
     @caregiver = Caregiver.new
+  end
+
+  def show
+    @caregiver = Caregiver.find(params[:id])
+    @markers = [
+        {
+          lat: @caregiver.latitude,
+          lng: @caregiver.longitude,
+          info_window: "<div><i class='page-title fa-solid fa-location-dot text-primary'></i> <strong>Lat:</strong> #{@caregiver.latitude} <strong class='text-primary'>-</strong> <strong>Long:</strong> #{@caregiver.longitude}
+                        </div>"
+        }
+      ]
   end
 
   def create
